@@ -21,7 +21,15 @@ export async function insertNewGame(req, res){
 export async function getAllGames(req, res) {
 
     try {
-        const {rows} = await db.query('SELECT * FROM GAMES');
+        const {rows} = await db.query(
+            `SELECT games.* , categories.name AS "categoryName"
+             FROM 
+                GAMES
+            JOIN 
+                categories
+            ON
+                categories.id = games."categoryId"
+            `);
         res.send(rows).status(200);
     }catch {
         res.sendStatus(500);

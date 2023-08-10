@@ -16,8 +16,8 @@ export async function createCategory(req, res) {
 export async function listCategories(req, res) {
   
  try {
-  const categories = await db.query("SELECT * FROM categories");
-    res.send(categories.rows).status(200);
+  const {rows} = await db.query("SELECT * FROM categories");
+    res.send(rows).status(200);
   }
   catch (err) {
     res.status(400).send(err.message);

@@ -19,6 +19,8 @@ export async function insertNewGame(req, res){
 }
 
 export async function getAllGames(req, res) {
+    const {name } = req.query;
+    
 
     try {
         const {rows} = await db.query(

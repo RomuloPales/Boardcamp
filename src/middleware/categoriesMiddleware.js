@@ -1,4 +1,4 @@
-import { categoriesSchema } from "../schemas/categories.js";
+import { categoriesSchema } from "../schemas/categoriesSchema.js";
 import db from "../database/db.js";
 
 export async function validateCategories(req, res, next) {

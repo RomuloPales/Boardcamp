@@ -1,4 +1,4 @@
-import { gamesSchema } from "../schemas/games.js";
+import { gamesSchema } from "../schemas/gamesSchema.js";
 import db  from "../database/db.js";
 
 export async function validateSchemaGames(req, res, next) {

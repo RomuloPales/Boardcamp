@@ -1,8 +1,9 @@
 import { gamesSchema } from "../schemas/games.js";
-import { db } from "../database/db.js";
+import db  from "../database/db.js";
 
 export async function validateSchemaGames(req, res, next) {
   const game = req.body;
+  console.log(game)
   const { error } = gamesSchema.validate(game, {
     abortEarly: false,
   });
@@ -28,6 +29,7 @@ export async function validateSchemaGames(req, res, next) {
   if (nameGameExist.rows.length > 0) {
     return res.sendStatus(409);
   }
+  console.log(game)
   res.locals.game = game;
   next();
 }

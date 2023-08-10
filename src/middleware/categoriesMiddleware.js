@@ -17,9 +17,9 @@ export async function validateCategories(req, res, next) {
     [categories.name]
   );
 
-  if (categorieExist) {
-    res.sendstatus(409);
+  if (categorieExist.rows.length > 0) {
+    return res.sendStatus(409);
   }
-  res.locals.categories = categories;
+  res.locals.categorie = categories;
   next();
 }

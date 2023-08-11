@@ -3,7 +3,6 @@ import db  from "../database/db.js";
 
 export async function validateSchemaGames(req, res, next) {
   const game = req.body;
-  console.log(game)
   const { error } = gamesSchema.validate(game, {
     abortEarly: false,
   });

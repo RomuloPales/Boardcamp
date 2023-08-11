@@ -5,7 +5,7 @@ export const rentalsSchemaValidate = joi.object({
   gameId: joi.number().required(),
   rentDate: joi.date().required(),
   daysRented: joi.number().required(),
-  returnDate: joi.date().required(),
+  returnDate: joi.date().allow(null),
   originalPrice: joi.number().required(),
-  delayFee: joi.number().required(),
+  delayFee: joi.number().allow(null),
 });

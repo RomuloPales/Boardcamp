@@ -9,7 +9,7 @@ export async function createCategory(req, res) {
     res.sendStatus(201);
   } catch (err) {
     res.status(400).send(err.message);
-    console.log(categorie);
+
   }
 }
 

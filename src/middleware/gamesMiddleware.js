@@ -28,7 +28,6 @@ export async function validateSchemaGames(req, res, next) {
   if (nameGameExist.rows.length > 0) {
     return res.sendStatus(409);
   }
-  console.log(game)
   res.locals.game = game;
   next();
 }

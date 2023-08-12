@@ -103,3 +103,24 @@ export async function returnRental(req, res) {
     res.status(500).send(err.message);
   }
 }
+
+export async function deleteGame(req, res) {
+  try {
+    const { id } = req.params;
+    const { rows } = await db.query(`SELECT * FROM rentals WHERE id = $1`, [
+      id,
+    ]);
+    const rental = rows[0];
+
+    if (!rental) {
+      return res.status(404).send("Aluguel não encontrado.");
+    }
+    if (rental.returnDate === null) {
+      return res.status(400).send("Aluguel em andamento.");
+    }
+    await db.query(`DELETE FROM rentals WHERE id = $1`, [id]);
+    res.sendStatus(200);
+  } catch (err) {
+    res.status(500).send(err.message);
+  }
+}
